@@ -129,14 +129,14 @@ public class JwtUtil {
     }
 
     @Transactional(readOnly = true)
-    public RefreshToken isPresentRefreshToken(Account account){
-        Optional<RefreshToken> optionalRefreshToken = refreshTokenRepository.findByAccount(account);
+    public RefreshToken isPresentRefreshToken(String token){
+        Optional<RefreshToken> optionalRefreshToken = refreshTokenRepository.findByEmail(getEmailFromToken(token));
         return optionalRefreshToken.orElse(null);
     }
 
     @Transactional
-    public GlobalResDto deleteRefreshToken(Account account){
-        RefreshToken refreshToken = isPresentRefreshToken(account);
+    public GlobalResDto deleteRefreshToken(String token){
+        RefreshToken refreshToken = isPresentRefreshToken(token);
         if (null == refreshToken){
             throw new RuntimeException("Token Not Found");
         }

@@ -85,7 +85,9 @@ public class AccountService {
             throw new RuntimeException("Member Not Found");
         }
 
-        return jwtUtil.deleteRefreshToken(account);
+        jwtUtil.deleteRefreshToken(httpServletRequest.getHeader("Refresh-Token"));
+
+        return new GlobalResDto("Logout Success", HttpStatus.OK.value());
     }
 
     private static void setHeader(HttpServletResponse httpServletResponse, TokenDto tokenDto) {

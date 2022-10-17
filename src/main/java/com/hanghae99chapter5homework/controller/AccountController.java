@@ -24,23 +24,23 @@ public class AccountController {
     private final JwtUtil jwtUtil;
 
     @PostMapping("/signup")
-    public GlobalResDto signup(@RequestBody @Valid AccountRequestDto accountRequestDto){
+    public GlobalResDto signup(@RequestBody @Valid AccountRequestDto accountRequestDto) {
         return accountService.signup(accountRequestDto);
     }
 
     @PostMapping("/login")
-    public GlobalResDto login(@RequestBody @Valid LoginRequestDto loginRequestDto, HttpServletResponse httpServletResponse){
+    public GlobalResDto login(@RequestBody @Valid LoginRequestDto loginRequestDto, HttpServletResponse httpServletResponse) {
         return accountService.login(loginRequestDto, httpServletResponse);
     }
 
     @GetMapping("/renew")
-    public GlobalResDto issuedToken(@AuthenticationPrincipal UserDetailsImpl userDetails, HttpServletResponse httpServletResponse){
+    public GlobalResDto issuedToken(@AuthenticationPrincipal UserDetailsImpl userDetails, HttpServletResponse httpServletResponse) {
         httpServletResponse.addHeader(JwtUtil.ACCESS_TOKEN, jwtUtil.createToken(userDetails.getAccount().getEmail(), "Access"));
         return new GlobalResDto("Success IssuedToken", HttpStatus.OK.value());
     }
 
     @PostMapping("/logout")
-    public GlobalResDto logout(HttpServletRequest httpServletRequest){
+    public GlobalResDto logout(HttpServletRequest httpServletRequest) {
         return accountService.logout(httpServletRequest);
     }
 
