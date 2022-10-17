@@ -1,13 +1,17 @@
+GET http://localhost:8080/board/list
+
+
+###
 POST http://localhost:8080/api/account/logout
 Accept: application/json
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDI2NDIxLCJpYXQiOjE2NjYwMTY0MjF9.7MpQveSm-tkDFEO6_SFNQ7e8AVUkNjueRMdY_cu1xQY
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDI4NTI5LCJpYXQiOjE2NjYwMTg1Mjl9.6tjILCqea6Dx_hqHbF00RIMACvLiHDmtmwKp48XpjK0
 
 
 ###
 
 GET http://localhost:8080/api/account/renew
 Accept: application/json
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDI1MTM5LCJpYXQiOjE2NjYwMTUxMzl9.tel3DQ2JtY3Dc5_a3Vd_WShSBTypNvEAYGl16CSrSys
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDI4NTI5LCJpYXQiOjE2NjYwMTg1Mjl9.6tjILCqea6Dx_hqHbF00RIMACvLiHDmtmwKp48XpjK0
 
 
 ###
