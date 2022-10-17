@@ -1,6 +1,13 @@
+POST http://localhost:8080/api/account/logout
+Accept: application/json
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDI2NDIxLCJpYXQiOjE2NjYwMTY0MjF9.7MpQveSm-tkDFEO6_SFNQ7e8AVUkNjueRMdY_cu1xQY
+
+
+###
+
 GET http://localhost:8080/api/account/renew
 Accept: application/json
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDA3NjU4LCJpYXQiOjE2NjU5OTc2NTh9.ug0LJ_QkyzL-YKyq5WFL-K9G_X3Pzf02T8SbIReecMU
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDI1MTM5LCJpYXQiOjE2NjYwMTUxMzl9.tel3DQ2JtY3Dc5_a3Vd_WShSBTypNvEAYGl16CSrSys
 
 
 ###
