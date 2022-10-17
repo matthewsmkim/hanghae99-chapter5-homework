@@ -12,13 +12,13 @@ public class BoardListResponseDto {
 
     //public Long id;
     public String title;
-    public String comment;
+    public String desc;
     public LocalDateTime createdAt;
 
     public BoardListResponseDto(Board board){
         //this.id = board.getId();
         this.title = board.getTitle();
-        this.comment = board.getComment();
+        this.desc = board.getDesc();
         this.createdAt = board.getCreatedAt();
     }
 }

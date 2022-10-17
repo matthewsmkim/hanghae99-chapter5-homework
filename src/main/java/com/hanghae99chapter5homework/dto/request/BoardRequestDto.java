@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 public class BoardRequestDto {
 
     private String title;
-    private String comment;
+    private String desc;
 
     public BoardRequestDto(Board board){
         this.title = board.getTitle();
-        this.comment = board.getComment();
+        this.desc = board.getDesc();
     }
 
 }

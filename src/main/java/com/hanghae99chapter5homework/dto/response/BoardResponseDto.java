@@ -8,13 +8,11 @@ import lombok.NoArgsConstructor;
 @Getter
 public class BoardResponseDto {
 
-    //private Long id;
     private String title;
-    private String comment;
+    private String desc;
 
     public BoardResponseDto(Board board){
-        //this.id = board.getId();
         this.title = board.getTitle();
-        this.comment = board.getComment();
+        this.desc = board.getDesc();
     }
 }

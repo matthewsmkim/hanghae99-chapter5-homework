@@ -20,17 +20,17 @@ public class Board extends Timestamped {
     private String title;
 
     @Column(nullable = false)
-    private String comment;
+    private String desc;
 
 
     public Board(BoardRequestDto requestDto){
         this.title = requestDto.getTitle();;
-        this.comment = requestDto.getComment();
+        this.desc = requestDto.getDesc();
     }
 
     public void update(BoardRequestDto requestDto){
         this.title = requestDto.getTitle();
-        this.comment = requestDto.getComment();
+        this.desc = requestDto.getDesc();
     }
 
 }
