@@ -88,9 +88,9 @@ public class AccountService {
         return jwtUtil.deleteRefreshToken(account);
     }
 
-    public GlobalResDto mypage(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        return jwtUtil.;
-    }
+//    public GlobalResDto mypage(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+//        return
+//    }
 
     private static void setHeader(HttpServletResponse httpServletResponse, TokenDto tokenDto) {
         httpServletResponse.addHeader(JwtUtil.ACCESS_TOKEN, tokenDto.getAccessToken());

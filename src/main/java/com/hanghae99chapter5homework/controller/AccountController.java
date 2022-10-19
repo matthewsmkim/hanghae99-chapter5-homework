@@ -44,9 +44,9 @@ public class AccountController {
         return accountService.logout(httpServletRequest);
     }
 
-    @GetMapping("/mypage")
-    public GlobalResDto mypage(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        return accountService.mypage(httpServletRequest, httpServletResponse);
-    }
+//    @GetMapping("/mypage")
+//    public GlobalResDto mypage(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+//        return accountService.mypage(httpServletRequest, httpServletResponse);
+//    }
 
 }
