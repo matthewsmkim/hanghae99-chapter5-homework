@@ -2,16 +2,29 @@ GET http://localhost:8080/board/list
 
 
 ###
+POST http://localhost:8080/board/add
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MTU2ODkxLCJpYXQiOjE2NjYxNTY4MzF9.rFvarj_V24CEg0el6DsOY1cFkPog6bS6gGs5rmBKMVU
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MTY2ODMxLCJpYXQiOjE2NjYxNTY4MzF9.MwGTO369xhtocZVxnUJ8jjNOMo5PQqXWe9yZizIaJWk
+Content-Type: application/json
+
+{
+  "title": "김지애 바보",
+  "comment": "멍충잉"
+}
+
+
+###
 POST http://localhost:8080/api/account/logout
 Accept: application/json
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDI4NTI5LCJpYXQiOjE2NjYwMTg1Mjl9.6tjILCqea6Dx_hqHbF00RIMACvLiHDmtmwKp48XpjK0
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MTAxNjkyLCJpYXQiOjE2NjYwOTE2OTJ9.qh7tVlgmfXEIg9DFC1PYmZgoKW7n9zgAhGh_Huq0VRk
 
 
 ###
 
 GET http://localhost:8080/api/account/renew
 Accept: application/json
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDI4NTI5LCJpYXQiOjE2NjYwMTg1Mjl9.6tjILCqea6Dx_hqHbF00RIMACvLiHDmtmwKp48XpjK0
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDg0MzUzLCJpYXQiOjE2NjYwNzQzNTN9.s3SQC55sRDFVb8px0AELby8-8sscUJGyt4xDr11WmDg
 
 
 ###
