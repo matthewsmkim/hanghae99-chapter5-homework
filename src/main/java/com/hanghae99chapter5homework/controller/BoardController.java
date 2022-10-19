@@ -8,6 +8,7 @@ import com.hanghae99chapter5homework.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -31,19 +32,19 @@ public class BoardController {
 
     // 게시판 생성
     @PostMapping("/add")
-    public BoardResponseDto boardCreate(@RequestBody BoardRequestDto requestDto) {
-        return boardService.create(requestDto);
+    public BoardResponseDto boardCreate(@RequestBody BoardRequestDto requestDto, HttpServletRequest httpServletRequest) {
+        return boardService.create(requestDto, httpServletRequest);
     }
 
     // 게시판 수정
     @PutMapping("/update/{id}")
-    public Long boardUpdate(@PathVariable Long id, @RequestBody BoardRequestDto requestDto){
-        return boardService.update(id, requestDto);
+    public Long boardUpdate(@PathVariable Long id, @RequestBody BoardRequestDto requestDto, HttpServletRequest httpServletRequest){
+        return boardService.update(id, requestDto, httpServletRequest);
     }
 
     // 게시판 삭제
     @DeleteMapping("delete/{id}")
-    public BoardResponseDto boardDelete(@PathVariable Long id){
-        return boardService.delete(id);
+    public BoardResponseDto boardDelete(@PathVariable Long id, @RequestBody HttpServletRequest httpServletRequest){
+        return boardService.delete(id, httpServletRequest);
     }
 }

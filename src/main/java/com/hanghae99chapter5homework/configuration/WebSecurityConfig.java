@@ -40,6 +40,7 @@ public class WebSecurityConfig {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.authorizeRequests().antMatchers("/api/account/**").permitAll()
+                .antMatchers("/board/**").permitAll()
                 .anyRequest().authenticated()
                 .and().addFilterBefore(new JwtAuthfilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
