@@ -1,6 +1,6 @@
 package com.hanghae99chapter5homework.jwt;
 
-import com.hanghae99chapter5homework.domain.Account;
+import com.hanghae99chapter5homework.domain.Member;
 import com.hanghae99chapter5homework.domain.RefreshToken;
 import com.hanghae99chapter5homework.domain.UserDetailsImpl;
 import com.hanghae99chapter5homework.global.GlobalResDto;
@@ -120,22 +120,22 @@ public class JwtUtil {
         return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody().getSubject();
     }
 
-    public Account getAccountFromAuthentication(){
+    public Member getAccountFromAuthentication(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())){
             return null;
         }
-        return ((UserDetailsImpl) authentication.getPrincipal()).getAccount();
+        return ((UserDetailsImpl) authentication.getPrincipal()).getMember();
     }
 
     @Transactional(readOnly = true)
-    public RefreshToken isPresentRefreshToken(Account account){
-        Optional<RefreshToken> optionalRefreshToken = refreshTokenRepository.findByAccount(account);
+    public RefreshToken isPresentRefreshToken(Member member){
+        Optional<RefreshToken> optionalRefreshToken = refreshTokenRepository.findByAccount(member);
         return optionalRefreshToken.orElse(null);
     }
 
     @Transactional
-    public GlobalResDto deleteRefreshToken(Account account){
+    public GlobalResDto deleteRefreshToken(Member account){
         RefreshToken refreshToken = isPresentRefreshToken(account);
         if (null == refreshToken){
             throw new RuntimeException("Token Not Found");

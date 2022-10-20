@@ -1,19 +1,16 @@
 package com.hanghae99chapter5homework.domain;
 
 import com.hanghae99chapter5homework.global.Timestamped;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
+@Getter @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Account extends Timestamped {
+public class Member extends Timestamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +20,7 @@ public class Account extends Timestamped {
     private String email;
 
     @Column
-    private String nickname;
+    private String username;
 
     @Column
     private String password;

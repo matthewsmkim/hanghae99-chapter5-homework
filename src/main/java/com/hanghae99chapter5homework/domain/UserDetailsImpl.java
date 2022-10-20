@@ -7,12 +7,12 @@ import java.util.Collection;
 
 public class UserDetailsImpl implements UserDetails {
 
-    private Account account;
-    public Account getAccount(){
-        return this.account;
+    private Member member;
+    public Member getMember(){
+        return this.member;
     }
-    public void setAccount(Account account){
-        this.account = account;
+    public void setMember(Member member){
+        this.member = member;
     }
 
     @Override
@@ -49,4 +49,6 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return false;
     }
+
+
 }

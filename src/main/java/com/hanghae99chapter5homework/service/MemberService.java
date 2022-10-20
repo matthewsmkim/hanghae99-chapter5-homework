@@ -1,16 +1,18 @@
 package com.hanghae99chapter5homework.service;
 
+import com.hanghae99chapter5homework.domain.Member;
 import com.hanghae99chapter5homework.domain.request.LoginRequestDto;
 import com.hanghae99chapter5homework.domain.request.AccountRequestDto;
-import com.hanghae99chapter5homework.domain.Account;
 import com.hanghae99chapter5homework.domain.RefreshToken;
-import com.hanghae99chapter5homework.repository.AccountRepository;
+import com.hanghae99chapter5homework.repository.MemberRepository;
 import com.hanghae99chapter5homework.repository.RefreshTokenRepository;
 import com.hanghae99chapter5homework.global.GlobalResDto;
 import com.hanghae99chapter5homework.jwt.TokenDto;
 import com.hanghae99chapter5homework.jwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +23,9 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class AccountService {
+public abstract class MemberService {
 
-    private final AccountRepository accountRepository;
+    public final MemberRepository memberRepository;
     private final RefreshTokenRepository refreshTokenRepository;
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
@@ -32,7 +34,7 @@ public class AccountService {
     public GlobalResDto signup(AccountRequestDto accountRequestDto) {
 
         //email 중복 검사
-        if(accountRepository.findByEmail(accountRequestDto.getEmail()).isPresent()){
+        if(memberRepository.findByEmail(accountRequestDto.getEmail()).isPresent()){
             throw new RuntimeException("Overlap Check");
         }
 
@@ -40,23 +42,23 @@ public class AccountService {
             throw new RuntimeException("Password does not match");
         }
 
-        Account account = Account.builder()
+        Member member = Member.builder()
                 .email(accountRequestDto.getEmail())
-                .nickname(accountRequestDto.getNickname())
+                .username(accountRequestDto.getNickname())
                 .password(passwordEncoder.encode(accountRequestDto.getPassword()))
                 .build();
-        accountRepository.save(account);
+        memberRepository.save(member);
         return new GlobalResDto("Success Signup", HttpStatus.OK.value());
     }
 
     @Transactional
     public GlobalResDto login(LoginRequestDto loginRequestDto, HttpServletResponse httpServletResponse) {
 
-        Account account = accountRepository.findByEmail(loginRequestDto.getEmail()).orElseThrow(
+        Member member = memberRepository.findByEmail(loginRequestDto.getEmail()).orElseThrow(
                 () -> new RuntimeException("Not found account")
         );
 
-        if(!passwordEncoder.matches(loginRequestDto.getPassword(), account.getPassword())){
+        if(!passwordEncoder.matches(loginRequestDto.getPassword(), member.getPassword())){
             throw new RuntimeException("Password does not match");
         }
 
@@ -80,12 +82,12 @@ public class AccountService {
         if(!jwtUtil.refreshTokenValidation(httpServletRequest.getHeader("Refresh-Token"))){
             throw new RuntimeException("Token has expired");
         }
-        Account account = jwtUtil.getAccountFromAuthentication();
-        if (null == account){
+        Member member = jwtUtil.getAccountFromAuthentication();
+        if (null == member){
             throw new RuntimeException("Member Not Found");
         }
 
-        return jwtUtil.deleteRefreshToken(account);
+        return jwtUtil.deleteRefreshToken(member);
     }
 
 //    public GlobalResDto mypage(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
@@ -97,4 +99,12 @@ public class AccountService {
         httpServletResponse.addHeader(JwtUtil.REFRESH_TOKEN, tokenDto.getRefreshToken());
     }
 
+    public Optional<Object> findByUsername(String username) {
+        return null;
+    }
+
+    public abstract UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+
+    @Transactional
+    public abstract Long updateInfo(String username, String newName, String email);
 }

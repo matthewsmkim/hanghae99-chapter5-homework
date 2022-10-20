@@ -2,7 +2,7 @@ package com.hanghae99chapter5homework.controller;
 
 import com.hanghae99chapter5homework.domain.request.LoginRequestDto;
 import com.hanghae99chapter5homework.domain.request.AccountRequestDto;
-import com.hanghae99chapter5homework.service.AccountService;
+import com.hanghae99chapter5homework.service.MemberService;
 import com.hanghae99chapter5homework.global.GlobalResDto;
 import com.hanghae99chapter5homework.jwt.JwtUtil;
 import com.hanghae99chapter5homework.domain.UserDetailsImpl;
@@ -18,30 +18,30 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @RequestMapping("/api/account")
 @RestController
-public class AccountController {
+public class MemberController {
 
-    private final AccountService accountService;
+    private final MemberService memberService;
     private final JwtUtil jwtUtil;
 
     @PostMapping("/signup")
     public GlobalResDto signup(@RequestBody @Valid AccountRequestDto accountRequestDto){
-        return accountService.signup(accountRequestDto);
+        return memberService.signup(accountRequestDto);
     }
 
     @PostMapping("/login")
     public GlobalResDto login(@RequestBody @Valid LoginRequestDto loginRequestDto, HttpServletResponse httpServletResponse){
-        return accountService.login(loginRequestDto, httpServletResponse);
+        return memberService.login(loginRequestDto, httpServletResponse);
     }
 
     @GetMapping("/renew")
     public GlobalResDto issuedToken(@AuthenticationPrincipal UserDetailsImpl userDetails, HttpServletResponse httpServletResponse){
-        httpServletResponse.addHeader(JwtUtil.ACCESS_TOKEN, jwtUtil.createToken(userDetails.getAccount().getEmail(), "Access"));
+        httpServletResponse.addHeader(JwtUtil.ACCESS_TOKEN, jwtUtil.createToken(userDetails.getMember().getEmail(), "Access"));
         return new GlobalResDto("Success IssuedToken", HttpStatus.OK.value());
     }
 
     @PostMapping("/logout")
     public GlobalResDto logout(HttpServletRequest httpServletRequest){
-        return accountService.logout(httpServletRequest);
+        return memberService.logout(httpServletRequest);
     }
 
 //    @GetMapping("/mypage")
