@@ -1,11 +1,70 @@
+DELETE http://localhost:8080/api/comment/auth/1
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+
+
+
+###
+PUT http://localhost:8080/api/comment/auth/1
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+Content-Type: application/json
+
+{
+  "postId": 1,
+  "comment": "좋아요"
+}
+
+###
+GET http://localhost:8080/api/comment/list
+
+
+###
+POST http://localhost:8080/api/comment/add
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+Content-Type: application/json
+
+{
+  "postId": 1,
+  "comment": "싫어요"
+}
+
+
+
+###
+DELETE http://localhost:8080/board/delete/1
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+
+###
+PUT http://localhost:8080/board/update/1
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+Content-Type: application/json
+
+{
+  "title": "조계일 바보",
+  "comment": "똥개"
+}
+
+###
+GET http://localhost:8080/board/one/1
+
+###
 GET http://localhost:8080/board/list
 
 
 ###
 POST http://localhost:8080/board/add
 Accept: application/json
-Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MTU2ODkxLCJpYXQiOjE2NjYxNTY4MzF9.rFvarj_V24CEg0el6DsOY1cFkPog6bS6gGs5rmBKMVU
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MTY2ODMxLCJpYXQiOjE2NjYxNTY4MzF9.MwGTO369xhtocZVxnUJ8jjNOMo5PQqXWe9yZizIaJWk
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
 Content-Type: application/json
 
 {
@@ -17,14 +76,14 @@ Content-Type: application/json
 ###
 POST http://localhost:8080/api/account/logout
 Accept: application/json
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MTAxNjkyLCJpYXQiOjE2NjYwOTE2OTJ9.qh7tVlgmfXEIg9DFC1PYmZgoKW7n9zgAhGh_Huq0VRk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MjQyOTY4LCJpYXQiOjE2NjYyMzI5Njh9.xRreqLa1Nl0nEbUNE5LOoBdthM8GztbOemeX4fOrLzA
 
 
 ###
 
 GET http://localhost:8080/api/account/renew
 Accept: application/json
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDg0MzUzLCJpYXQiOjE2NjYwNzQzNTN9.s3SQC55sRDFVb8px0AELby8-8sscUJGyt4xDr11WmDg
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MjQzMjcyLCJpYXQiOjE2NjYyMzMyNzJ9.2n2AMh8OQ3le1pH7zjBhvh_5GfpM1TeedYzZnfrXANA
 
 
 ###

@@ -43,8 +43,8 @@ public class BoardController {
     }
 
     // 게시판 삭제
-    @DeleteMapping("delete/{id}")
-    public BoardResponseDto boardDelete(@PathVariable Long id, @RequestBody HttpServletRequest httpServletRequest){
+    @DeleteMapping("/delete/{id}")
+    public BoardResponseDto boardDelete(@PathVariable Long id, HttpServletRequest httpServletRequest){
         return boardService.delete(id, httpServletRequest);
     }
 }
