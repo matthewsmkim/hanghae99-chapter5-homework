@@ -1,10 +1,8 @@
 package com.hanghae99chapter5homework.domain;
 
+import com.hanghae99chapter5homework.domain.request.AccountRequestDto;
 import com.hanghae99chapter5homework.global.Timestamped;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
@@ -13,6 +11,7 @@ import java.util.Objects;
 @Entity
 @Getter
 @Builder
+//@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Account extends Timestamped {
@@ -39,6 +38,11 @@ public class Account extends Timestamped {
         }
         Account account = (Account) o;
         return id != null && Objects.equals(id,account.id);
+    }
+
+    public void update(AccountRequestDto accountRequestDto){
+        this.nickname = accountRequestDto.getNickname();
+        this.password = accountRequestDto.getPassword();
     }
 
 
