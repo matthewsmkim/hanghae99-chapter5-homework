@@ -64,7 +64,7 @@ GET http://localhost:8080/board/list
 POST http://localhost:8080/board/add
 Accept: application/json
 Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kMa
 Content-Type: application/json
 
 {
