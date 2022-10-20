@@ -1,6 +1,89 @@
+DELETE http://localhost:8080/api/comment/auth/1
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+
+
+
+###
+PUT http://localhost:8080/api/comment/auth/1
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+Content-Type: application/json
+
+{
+  "postId": 1,
+  "comment": "좋아요"
+}
+
+###
+GET http://localhost:8080/api/comment/list
+
+
+###
+POST http://localhost:8080/api/comment/add
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+Content-Type: application/json
+
+{
+  "postId": 1,
+  "comment": "싫어요"
+}
+
+
+
+###
+DELETE http://localhost:8080/board/delete/1
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+
+###
+PUT http://localhost:8080/board/update/1
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kM
+Content-Type: application/json
+
+{
+  "title": "조계일 바보",
+  "comment": "똥개"
+}
+
+###
+GET http://localhost:8080/board/one/1
+
+###
+GET http://localhost:8080/board/list
+
+
+###
+POST http://localhost:8080/board/add
+Accept: application/json
+Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2Mjk0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.tHDfPDMY1IwB_eUe63K7BPnoSsFJ6vWMlqMPk6gfDlk
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MzM0NTAyLCJpYXQiOjE2NjYyMzQ1MDJ9.mhZpDAscXzsO_bfnt59_Y7yUkLRllDI9PNzdX1bk-kMa
+Content-Type: application/json
+
+{
+  "title": "김지애 바보",
+  "comment": "멍충잉"
+}
+
+
+###
+POST http://localhost:8080/api/account/logout
+Accept: application/json
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MjQyOTY4LCJpYXQiOjE2NjYyMzI5Njh9.xRreqLa1Nl0nEbUNE5LOoBdthM8GztbOemeX4fOrLzA
+
+
+###
+
 GET http://localhost:8080/api/account/renew
 Accept: application/json
-Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MDA3NjU4LCJpYXQiOjE2NjU5OTc2NTh9.ug0LJ_QkyzL-YKyq5WFL-K9G_X3Pzf02T8SbIReecMU
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkMTIzQGFiY2QuY29tIiwiZXhwIjoxNjY2MjQzMjcyLCJpYXQiOjE2NjYyMzMyNzJ9.2n2AMh8OQ3le1pH7zjBhvh_5GfpM1TeedYzZnfrXANA
 
 
 ###

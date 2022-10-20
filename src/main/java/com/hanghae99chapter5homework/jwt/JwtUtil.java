@@ -40,8 +40,8 @@ public class JwtUtil {
 
     public static final String ACCESS_TOKEN = "Access-Token";
     public static final String REFRESH_TOKEN = "Refresh-Token";
-    private static final long ACCESS_TIME = 10 * 1000L;
-    private static final long REFRESH_TIME = 10000 * 1000L;
+    private static final long ACCESS_TIME = 60000 * 1000L;
+    private static final long REFRESH_TIME = 100000 * 1000L;
 
 
     @Value("${jwt.secret.key}")
@@ -129,14 +129,14 @@ public class JwtUtil {
     }
 
     @Transactional(readOnly = true)
-    public RefreshToken isPresentRefreshToken(Account account){
-        Optional<RefreshToken> optionalRefreshToken = refreshTokenRepository.findByAccount(account);
+    public RefreshToken isPresentRefreshToken(String token){
+        Optional<RefreshToken> optionalRefreshToken = refreshTokenRepository.findByEmail(getEmailFromToken(token));
         return optionalRefreshToken.orElse(null);
     }
 
     @Transactional
-    public GlobalResDto deleteRefreshToken(Account account){
-        RefreshToken refreshToken = isPresentRefreshToken(account);
+    public GlobalResDto deleteRefreshToken(String token){
+        RefreshToken refreshToken = isPresentRefreshToken(token);
         if (null == refreshToken){
             throw new RuntimeException("Token Not Found");
         }
@@ -145,6 +145,26 @@ public class JwtUtil {
         return new GlobalResDto("Logout", HttpStatus.OK.value());
     }
 
+    public void validateTokenAndMember(HttpServletRequest httpServletRequest) {
+        if (null == httpServletRequest.getHeader("Refresh-Token")){
+            throw new RuntimeException("Please login and use it.");
+        }
 
+        if (null == httpServletRequest.getHeader("Access-Token")){
+            throw new RuntimeException("Please login and use it.");
+        }
+
+        Account account = validateMember(httpServletRequest);
+        if(null == account){
+            throw new RuntimeException("Not Valid Token");
+        }
+    }
+
+    public Account validateMember(HttpServletRequest httpServletRequest){
+        if (!tokenValidation(httpServletRequest.getHeader("Refresh-Token"))){
+            return null;
+        }
+        return getAccountFromAuthentication();
+    }
 
 }

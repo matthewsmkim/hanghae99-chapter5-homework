@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Getter
@@ -27,6 +29,17 @@ public class Account extends Timestamped {
 
     @Column
     private String password;
+
+    public boolean equals(Object o){
+        if (this == o){
+            return true;
+        }
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)){
+            return false;
+        }
+        Account account = (Account) o;
+        return id != null && Objects.equals(id,account.id);
+    }
 
 
 }
